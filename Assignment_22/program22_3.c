@@ -4,18 +4,24 @@
 
 bool Check(int Arr[], int iLength)
 {
-    int iCnt = 0;
+    int iCnt = 0, iCount = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
         if(Arr[iCnt] == 11)
         {
-            return true;
+            iCount++;
+            break;
         }
-        else
-        {
-            return false;
-        }
+    }
+
+    if(iCount == 1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 
