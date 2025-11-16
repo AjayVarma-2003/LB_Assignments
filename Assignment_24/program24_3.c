@@ -1,19 +1,27 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-int Frequency(int Arr[], int iLength)
+int Difference(int Arr[], int iLength)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0, iMax = 0, iMin = 0, iDiff = 0;
 
+    iMin = Arr[0];
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] == 11)
+        if(iMin > Arr[iCnt])
         {
-            iCount++;
+            iMin = Arr[iCnt];
+        }
+        
+        if(iMax < Arr[iCnt])
+        {
+            iMax = Arr[iCnt];
         }
     }
 
-    return iCount;
+    iDiff = iMax - iMin;
+
+    return iDiff;
 }
 
 int main()
@@ -26,20 +34,14 @@ int main()
 
     iPtr = (int *)malloc(iSize * sizeof(int));
 
-    if(iPtr == NULL)
-    {
-        printf("Unable to allocate memory. \n");
-        return -1;
-    }
-
     printf("Enter the elements : \n");
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
         scanf("%d", &(iPtr[iCnt]));
     }
 
-    iRet = Frequency(iPtr, iSize);
-    printf("Frequency of 11 is : %d \n", iRet);
+    iRet = Difference(iPtr, iSize);
+    printf("Difference between largest and Smallest number is : %d \n", iRet);
 
     free(iPtr);
 

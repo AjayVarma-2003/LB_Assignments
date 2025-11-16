@@ -1,19 +1,20 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-int Frequency(int Arr[], int iLength)
+int FindMax(int Arr[], int iLength)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0, iMax = 0;
 
+    iMax = Arr[0];
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] == 11)
+        if(iMax < Arr[iCnt])
         {
-            iCount++;
+            iMax = Arr[iCnt];
         }
     }
 
-    return iCount;
+    return iMax;
 }
 
 int main()
@@ -26,20 +27,14 @@ int main()
 
     iPtr = (int *)malloc(iSize * sizeof(int));
 
-    if(iPtr == NULL)
-    {
-        printf("Unable to allocate memory. \n");
-        return -1;
-    }
-
     printf("Enter the elements : \n");
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
         scanf("%d", &(iPtr[iCnt]));
     }
 
-    iRet = Frequency(iPtr, iSize);
-    printf("Frequency of 11 is : %d \n", iRet);
+    iRet = FindMax(iPtr, iSize);
+    printf("Largest number is : %d \n", iRet);
 
     free(iPtr);
 

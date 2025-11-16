@@ -2,27 +2,33 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-bool Check(int Arr[], int iLength)
+int Check(int Arr[], int iLength, int iNo)
 {
     int iCnt = 0;
     bool bFlag = false;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] == 11)
+        if(Arr[iCnt] == iNo)
         {
             bFlag = true;
             break;
         }
     }
 
-    return bFlag;
+    if(bFlag == true)
+    {
+        return iCnt;
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 int main()
 {
-    int iSize = 0, iCnt = 0;
-    bool bRet = false;
+    int iSize = 0, iCnt = 0, iValue = 0, iRet = 0;
     int *iPtr = NULL;
 
     printf("Enter the number of elements : \n");
@@ -42,15 +48,11 @@ int main()
         scanf("%d", &(iPtr[iCnt]));
     }
 
-    bRet = Check(iPtr, iSize);
-    if(bRet == true)
-    {
-        printf("11 is present. \n");
-    }
-    else
-    {
-        printf("11 is not present. \n");
-    }
+    printf("Enter the number: \n");
+    scanf("%d", &iValue);
+
+    iRet = Check(iPtr, iSize, iValue);
+    printf("Index of number is : %d \n", iRet);
 
     free(iPtr);
 

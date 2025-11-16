@@ -44,5 +44,7 @@ int main()
     iRet = Frequency(iPtr, iSize, iValue);
     printf("Frequency of number is : %d \n", iRet);
 
+    free(iPtr);
+
     return 0;
 }

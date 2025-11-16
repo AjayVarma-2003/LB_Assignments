@@ -41,5 +41,7 @@ int main()
     iRet = CountEven(iPtr, iSize);
     printf("Number of even elements is : %d \n", iRet);
 
+    free(iPtr);
+
     return 0;
 }

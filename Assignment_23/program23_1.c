@@ -2,14 +2,14 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-bool Check(int Arr[], int iLength)
+bool Check(int Arr[], int iLength, int iNo)
 {
     int iCnt = 0;
     bool bFlag = false;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] == 11)
+        if(Arr[iCnt] == iNo)
         {
             bFlag = true;
             break;
@@ -21,7 +21,7 @@ bool Check(int Arr[], int iLength)
 
 int main()
 {
-    int iSize = 0, iCnt = 0;
+    int iSize = 0, iCnt = 0, iValue = 0;
     bool bRet = false;
     int *iPtr = NULL;
 
@@ -42,14 +42,17 @@ int main()
         scanf("%d", &(iPtr[iCnt]));
     }
 
-    bRet = Check(iPtr, iSize);
+    printf("Enter the number: \n");
+    scanf("%d", &iValue);
+
+    bRet = Check(iPtr, iSize, iValue);
     if(bRet == true)
     {
-        printf("11 is present. \n");
+        printf("%d is present. \n", iValue);
     }
     else
     {
-        printf("11 is not present. \n");
+        printf("%d is not present. \n", iValue);
     }
 
     free(iPtr);

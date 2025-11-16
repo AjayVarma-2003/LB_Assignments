@@ -47,5 +47,7 @@ int main()
     iRet = Frequency(iPtr, iSize);
     printf("Result is : %d \n", iRet);
 
+    free(iPtr);
+
     return 0;
 }
